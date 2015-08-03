@@ -22,12 +22,12 @@ RUN mkdir /home/datastore
 #Change the document root to the desired location
 #RUN sed -i "s_/var/www/html/_/storage/var/www/html_" /etc/apache2/sites-available/application.conf
 #Restart httpd
-RUN service httpd start
+#RUN service httpd start
 #Provide user and group permission for the document root
 #RUN /bin/chown -R www-data:www-data /storage/var/www/
 #Open the apache port 80
-EXPOSE 80
+#EXPOSE 80
 
 #CMD ["service", "httpd",  "start"]
 #Enable apache service to start evenafter reboot
-CMD ["chkconfig", "httpd", "on"]
+#CMD ["chkconfig", "httpd", "on"]
