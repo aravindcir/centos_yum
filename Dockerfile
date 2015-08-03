@@ -18,7 +18,7 @@ RUN yum install -y nfs-utils
 RUN mkdir /home/datastore
 #Mount EFS to /storage directory
 #RUN /bin/mount -t nfs4 $(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone).fs-078a66ae.efs.us-west-2.amazonaws.com:/ /home/datastore
-ENV ALLOW_OVERRIDE **False**
+#ENV ALLOW_OVERRIDE **False**
 #Change the document root to the desired location
 #RUN sed -i "s_/var/www/html/_/storage/var/www/html_" /etc/apache2/sites-available/application.conf
 #Restart httpd
@@ -28,6 +28,6 @@ RUN service httpd restart
 #Open the apache port 80
 EXPOSE 80
 
-CMD ["service", "httpd",  "start"]
+#CMD ["service", "httpd",  "start"]
 #Enable apache service to start evenafter reboot
 CMD ["chkconfig", "httpd", "on"]
