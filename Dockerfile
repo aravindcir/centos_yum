@@ -11,11 +11,11 @@ RUN sleep 10
 RUN yum install -y php-mcrypt php-mysql php-gd php-ldap php-mssql vsftpd
 RUN sleep 10
 #Install NFS package to mount EFS
-RUN yum install -y nfs-utils
-
+RUN service httpd start
+RUN chkconfig httpd on
 #RUN rm -rf /var/www/*
 #Create a directory to mount EFS 
-RUN mkdir /home/datastore
+#RUN mkdir /home/datastore
 #Mount EFS to /storage directory
 #RUN /bin/mount -t nfs4 $(curl -s http://169.254.169.254/latest/meta-data/placement/availability-zone).fs-078a66ae.efs.us-west-2.amazonaws.com:/ /home/datastore
 #ENV ALLOW_OVERRIDE **False**
@@ -26,7 +26,7 @@ RUN mkdir /home/datastore
 #Provide user and group permission for the document root
 #RUN /bin/chown -R www-data:www-data /storage/var/www/
 #Open the apache port 80
-#EXPOSE 80
+EXPOSE 80
 
 #CMD ["service", "httpd",  "start"]
 #Enable apache service to start evenafter reboot
