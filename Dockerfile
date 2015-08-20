@@ -11,8 +11,8 @@ RUN sleep 10
 RUN yum install -y php-mcrypt php-mysql php-gd php-ldap php-mssql vsftpd
 RUN sleep 10
 #Install NFS package to mount EFS
-RUN /sbin/service httpd start
-RUN /sbin/chkconfig httpd on
+#RUN /sbin/service httpd start
+#RUN /sbin/chkconfig httpd on
 #RUN rm -rf /var/www/*
 #Create a directory to mount EFS 
 #RUN mkdir /home/datastore
@@ -28,6 +28,6 @@ RUN /sbin/chkconfig httpd on
 #Open the apache port 80
 EXPOSE 80
 
-#CMD ["service", "httpd",  "start"]
+CMD ["/sbin/service", "httpd",  "start"]
 #Enable apache service to start evenafter reboot
-#CMD ["chkconfig", "httpd", "on"]
+CMD ["/sbin/chkconfig", "httpd", "on"]
