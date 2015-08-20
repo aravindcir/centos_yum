@@ -11,8 +11,8 @@ RUN sleep 10
 RUN yum install -y php-mcrypt php-mysql php-gd php-ldap php-mssql vsftpd
 RUN sleep 10
 #Install NFS package to mount EFS
-RUN service httpd start
-RUN chkconfig httpd on
+RUN /sbin/service httpd start
+RUN /sbin/chkconfig httpd on
 #RUN rm -rf /var/www/*
 #Create a directory to mount EFS 
 #RUN mkdir /home/datastore
