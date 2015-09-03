@@ -8,7 +8,7 @@ RUN yum install -y git curl httpd php
 RUN sleep 10
 #CMD ["yum",  "install", "-y",  "php-mcrypt php-mysql php-gd php-ldap"]
 #install necessary modules to work with the application
-RUN yum install -y php-mcrypt php-mysql php-gd php-ldap php-mssql vsftpd
+RUN yum install -y php-mcrypt php-mysql php-gd
 RUN sleep 10
 #Install NFS package to mount EFS
 #RUN /sbin/service httpd start
